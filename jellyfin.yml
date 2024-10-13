@@ -1,0 +1,17 @@
+---
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /media/USBHDD/share/docker/jellyfin/library:/config
+      - /media/USBHDD/share/tv:/data/tvshows
+      - /media/USBHDD/share/movies:/data/movies
+      - /media/USBHDD/share/music:/music	
+    ports:
+      - 8096:8096
+    restart: unless-stopped
